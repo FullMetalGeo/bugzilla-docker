@@ -1,5 +1,5 @@
 #!/bin/bash -ex
-$(aws-env)
+eval $(aws-env)
 
 ./checksetup.pl
 sed -i \
@@ -9,6 +9,7 @@ sed -i \
     -e "s/^\$db_user = '.*';/\$db_user = '${DB_USERNAME}';/g" \
     -e "s/^\$db_pass = '.*';/\$db_pass = '${DB_PASSWORD}';/g" \
     -e "s/^\$db_host = '.*';/\$db_host = '${DB_HOST}';/g" \
+    -e "s/^\$site_wide_secret = '.*';/\$site_wide_secret = '${SITE_WIDE_SECRET}';/g" \
     localconfig
 ./checksetup.pl
 

@@ -28,7 +28,9 @@ RUN a2dismod mpm_event && \
     a2dissite 000-default && \
     a2ensite bugzilla && \
     a2enmod mpm_worker cgi headers expires rewrite && \
-    rm -rf /var/www/html
+    rm -rf /var/www/html && \
+    ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
+    ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
 WORKDIR /var/www/html/
 

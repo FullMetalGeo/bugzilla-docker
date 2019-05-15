@@ -37,4 +37,8 @@ node {
     stage("Update Parameter Store"){
         setBaseTag()
     }
+
+    stage('Deploy Docker to ECS') {
+        cfnDeploy()
+    }
 }

@@ -35,7 +35,7 @@ RUN a2dismod mpm_event && \
 WORKDIR /var/www/html/
 
 # Install Bugzilla
-ENV BUGZILLA_VERSION="5.0.4"
+ENV BUGZILLA_VERSION="5.0.6"
 RUN curl https://github.com/bugzilla/bugzilla/archive/release-${BUGZILLA_VERSION}.tar.gz \
     -Lo /tmp/release-${BUGZILLA_VERSION}.tar.gz && \
     tar -xvf /tmp/release-${BUGZILLA_VERSION}.tar.gz --strip-components=1 -C /var/www/html && \
